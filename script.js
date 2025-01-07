@@ -2,17 +2,23 @@ const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 
-const decimalToBinary = (input)=>{
-    const inputs = [];
-    const quotients = [];
-    const remainders = [];
+const decimalToBinary = (input) => {
+  let binary = "";
+  result.innerText = binary;
 
-    input = 0;
+  while(input > 0){
+    binary = (input % 2) + binary;
+    input = Math.floor(input /2);
+  }
 };
 
 const checkUserInput = () => {
-  if (!numberInput.value || isNaN(parseInt(numberInput.value)) || parseInt(numberInput.value) < 0 ) {
-    window.alert("Please provide a decimal number greater than or equal to 0");
+  if (
+    !numberInput.value ||
+    isNaN(parseInt(numberInput.value)) ||
+    parseInt(numberInput.value) < 0
+  ) {
+    alert("Please provide a decimal number greater than or equal to 0");
     return;
   }
 
