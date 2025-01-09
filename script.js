@@ -1,3 +1,7 @@
+
+const callStack = [
+  'a(): returns "freeCodeCamp " + b()'
+];
 const a = () => {
     return "freeCodeCamp " + b();
   };
@@ -10,7 +14,7 @@ const a = () => {
     return "awesome!";
   };
   
-  
+  console.log(a());
   
   const numberInput = document.getElementById("number-input");
   const convertBtn = document.getElementById("convert-btn");
