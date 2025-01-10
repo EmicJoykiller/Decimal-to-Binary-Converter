@@ -5,16 +5,24 @@ const animationContainer = document.getElementById("animation-container");
 const animationData = [
   {
     inputVal: 5,
-    addElDelay: 1000
+    addElDelay: 1000,
+    msg: 'decimalToBinary(5) returns "10" + 1 (5 % 2). Then it pops off the stack.',
+    showMsgDelay: 15000,
+    removeElDelay: 20000,
   },
   {
     inputVal: 2,
-    addElDelay: 1500
+    addElDelay: 1500,
+    msg: 'decimalToBinary(2) returns "1" + 0 (2 % 2) and gives that value to the stack below. Then it pops off the stack.',
+    showMsgDelay: 10000,
+    removeElDelay: 15000,
   },
   {
     inputVal: 1,
     addElDelay: 2000,
-    msg: ""
+    msg: "decimalToBinary(1) returns '1' (base case) and gives that value to the stack below. Then it pops off the stack.",
+    showMsgDelay: 5000,
+    removeElDelay: 10000,
   }
 ];
 
@@ -37,7 +45,17 @@ const showAnimation = () => {
         </p>
       `;
     }, obj.addElDelay);
+
+    setTimeout(() => {
+      document.getElementById(obj.inputVal).textContent = obj.msg;
+    }, obj.showMsgDelay);
+
+    setTimeout(()=>{},obj.removeElDelay);
+    document.getElementById(obj.inputVal).remove();
   });
+  setTimeout(()=>{
+    result.textContent = decimalToBinary(5);
+  },20000);
 };
 
 const checkUserInput = () => {
